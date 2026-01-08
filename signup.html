@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Football | Sign Up</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background:#0a0a0a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+form {
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    width:300px;
+}
+input, select, button {
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
+button {
+    background:#e63946;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<form id="signupForm">
+    <h2>Create Account</h2>
+
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+
+    <select id="team">
+        <option value="">Favorite Team</option>
+        <option>Barcelona</option>
+        <option>Real Madrid</option>
+        <option>Manchester City</option>
+        <option>Bayern Munich</option>
+    </select>
+
+    <button type="submit">Sign Up</button>
+</form>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const user = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        team: document.getElementById("team").value
+    };
+
+    localStorage.setItem("footballUser", JSON.stringify(user));
+    alert("Account created successfully!");
+    window.location.href = "login.html";
+});
+</script>
+
+</body>
+</html>
 
